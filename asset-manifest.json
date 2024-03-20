@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/food-boutique/static/css/main.88592592.css",
+    "main.css": "/food-boutique/static/css/main.73f76d55.css",
     "main.js": "/food-boutique/static/js/main.16392984.js",
     "static/media/hero-desk@2x.jpg": "/food-boutique/static/media/hero-desk@2x.10f16a5f54b1006a20cf.jpg",
     "static/media/hero-tab@2x.jpg": "/food-boutique/static/media/hero-tab@2x.6b4df6b5bd3fe49ecf3f.jpg",
@@ -19,11 +19,11 @@
     "static/media/NeueMontreal-Medium.woff2": "/food-boutique/static/media/NeueMontreal-Medium.929d810ac94c5179d2a3.woff2",
     "static/media/NeueMontreal-Regular.woff2": "/food-boutique/static/media/NeueMontreal-Regular.7b5a8273648a9482e29f.woff2",
     "index.html": "/food-boutique/index.html",
-    "main.88592592.css.map": "/food-boutique/static/css/main.88592592.css.map",
+    "main.73f76d55.css.map": "/food-boutique/static/css/main.73f76d55.css.map",
     "main.16392984.js.map": "/food-boutique/static/js/main.16392984.js.map"
   },
   "entrypoints": [
-    "static/css/main.88592592.css",
+    "static/css/main.73f76d55.css",
     "static/js/main.16392984.js"
   ]
 }
