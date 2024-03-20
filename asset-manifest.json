@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/food-boutique/static/css/main.00677479.css",
-    "main.js": "/food-boutique/static/js/main.5487a14e.js",
+    "main.css": "/food-boutique/static/css/main.0d412ff1.css",
+    "main.js": "/food-boutique/static/js/main.ff993abe.js",
     "static/media/QuincyCF-Black.ttf": "/food-boutique/static/media/QuincyCF-Black.8942f0f51051d65f5d5c.ttf",
     "static/media/QuincyCF-Black.woff": "/food-boutique/static/media/QuincyCF-Black.acc7c293589a2e62554a.woff",
     "static/media/NeueMontreal-Medium.ttf": "/food-boutique/static/media/NeueMontreal-Medium.f347317f38cdffce209d.ttf",
@@ -13,11 +13,11 @@
     "static/media/NeueMontreal-Medium.woff2": "/food-boutique/static/media/NeueMontreal-Medium.929d810ac94c5179d2a3.woff2",
     "static/media/NeueMontreal-Regular.woff2": "/food-boutique/static/media/NeueMontreal-Regular.7b5a8273648a9482e29f.woff2",
     "index.html": "/food-boutique/index.html",
-    "main.00677479.css.map": "/food-boutique/static/css/main.00677479.css.map",
-    "main.5487a14e.js.map": "/food-boutique/static/js/main.5487a14e.js.map"
+    "main.0d412ff1.css.map": "/food-boutique/static/css/main.0d412ff1.css.map",
+    "main.ff993abe.js.map": "/food-boutique/static/js/main.ff993abe.js.map"
   },
   "entrypoints": [
-    "static/css/main.00677479.css",
-    "static/js/main.5487a14e.js"
+    "static/css/main.0d412ff1.css",
+    "static/js/main.ff993abe.js"
   ]
 }
