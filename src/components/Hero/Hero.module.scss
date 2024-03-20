@@ -1,0 +1,13 @@
+@import "styles/mixins";
+
+.section {
+    padding: 72px 0 74px;
+
+    @include media-rules(tablet) {
+        padding: 116px 0 74px;
+    }
+
+    @include media-rules(desktop) {
+        padding: 77px 0 74px;
+    }
+}

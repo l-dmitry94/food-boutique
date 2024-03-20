@@ -1,0 +1,31 @@
+@import "styles/mixins";
+
+.wrapper {
+    position: relative;
+}
+
+.image {
+    border-radius: 30px;
+
+    @include media-rules(tablet) {
+        border-radius: 60px;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: -7px;
+    right: 8px;
+    width: 100px;
+    height: 100px;
+
+    @include media-rules(tablet) {
+        top: -30px;
+        right: 10px;
+    }
+
+    @include media-rules(desktop) {
+        top: -50px;
+        right: 20px;
+    }
+}
