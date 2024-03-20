@@ -1,0 +1,1 @@
+export const selectKeywordFilter = state => state.filters.keyword;
