@@ -1,3 +1,15 @@
-.header {
+@import "styles/mixins";
 
+.header {
+    padding-top: 18px;
+
+    @include media-rules(tablet){
+        padding-top: 24px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

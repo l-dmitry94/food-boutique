@@ -1,0 +1,74 @@
+@import "styles/vars";
+@import "styles/mixins";
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    @include media-rules(tablet) {
+        gap: 14px;
+    }
+
+    @include media-rules(desktop) {
+        gap: 24px;
+    }
+}
+
+.link {
+    display: inline-block;
+    line-height: 1.29;
+    color: $grey;
+    background-color: $green;
+    border-radius: 30px;
+    @include transition(background-color);
+    padding: 10px 20px;
+
+    &:is(:hover, :focus) {
+        background-color: $hover;
+    }
+
+    @include media-rules(tablet) {
+        font-size: 18px;
+        line-height: 1.33;
+        padding: 12px 28px;
+    }
+}
+
+.linkCart {
+
+    &:is(:hover, :focus) .iconWrapper {
+        background-color: $hover;
+    }
+
+    @include media-rules(tablet) {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 18px;
+        line-height: 1.33;
+        text-transform: uppercase;
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: $green;
+    border-radius: 50%;
+    @include transition(background-color);
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    fill: $grey;
+
+    @include media-rules(tablet){
+        width: 18px;
+        height: 18px;
+    }
+}

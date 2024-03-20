@@ -1,3 +1,62 @@
+@import "styles/vars";
+@import "styles/mixins";
+
 .link {
-    
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $second-family;
+    font-size: 18px;
+    line-height: 1.11;
+    letter-spacing: -0.02em;
+
+    @include media-rules(tablet){
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    &.headerLink {
+        & .iconWrapper {
+            background-color: $green;
+        }
+
+        & .icon {
+            fill: $grey;
+        }
+    }
+
+    &.footerLink {
+        color: $grey;
+        & .iconWrapper {
+            background-color: $grey;
+        }
+
+        & .icon {
+            fill: $green;
+        }
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    @include media-rules(tablet){
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+
+    @include media-rules(tablet){
+        width: 20px;
+        height: 20px;
+    }
 }
