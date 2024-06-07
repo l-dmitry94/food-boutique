@@ -1,0 +1,51 @@
+@import 'styles/mixins';
+
+.react-select-container {
+    & .react-select {
+        &__control {
+            height: 48px;
+            border: 1px solid rgba(1, 1, 1, 0.3);
+            border-radius: 30px;
+            cursor: pointer;
+            padding: 0 20px;
+        }
+
+        &__indicator svg {
+            width: 20px;
+            height: 20px;
+            fill: transparent;
+            stroke: var(--black);
+        }
+
+        &__menu {
+            top: calc(100% + 8px);
+            box-shadow:
+                0 4px 11px 0 rgba(0, 0, 0, 0.04),
+                0 20px 69px 0 rgba(0, 0, 0, 0.07);
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 14px 20px;
+        }
+
+        &__menu-list {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: max-content;
+            overflow: visible;
+        }
+
+        &__option {
+            line-height: 1.29;
+            color: rgba(1, 1, 1, 0.5);
+            cursor: pointer;
+            @include transition(color);
+
+            &--is-focused,
+            &--is-selected {
+                color: var(--black);
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import 'reset';
+@import 'fonts';
+@import 'react-select';
+
+:root {
+    //colors
+    --black: #010101;
+    --green: #6d8434;
+    --gray: #e8e8e2;
+    --dark-green: #586f1f;
+    --white: #ffffff;
+
+    //fonts
+    --font-family: 'Neue Montreal', sans-serif;
+    --second-family: 'Quincy CF', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: var(--black);
+    background-color: var(--gray);
+}

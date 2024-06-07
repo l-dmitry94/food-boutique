@@ -1,0 +1,51 @@
+@import "styles/mixins";
+
+.menuList {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.link {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.29;
+    color: var(--gray);
+    background-color: var(--green);
+    border-radius: 30px;
+    @include transition(background-color);
+    padding: 10px 20px;
+
+    &:is(:hover, :focus) {
+        background-color: var(--dark-green);
+    }
+}
+
+.cartLink {
+    display: inline-block;
+    
+    &:is(:hover, :focus) .wrapperCartIcon {
+        background-color: var(--dark-green);
+    }
+}
+
+.wrapperCartIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: var(--green);
+    border-radius: 50%;
+    @include transition(background-color);
+}
+
+.cartIcon {
+    width: 14px;
+    height: 14px;
+    fill: var(--gray);
+}
+
+.cartText {
+    display: none;
+}

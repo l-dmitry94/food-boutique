@@ -1,0 +1,25 @@
+.wrapperHeroImage {
+    position: relative;
+}
+
+.heroImage {
+    border-radius: 30px;
+}
+
+.organicIcon {
+    position: absolute;
+    top: -7px;
+    right: 8px;
+    width: 100px;
+    height: 100px;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

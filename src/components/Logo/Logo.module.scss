@@ -1,0 +1,48 @@
+.linkLogo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wrapperLogoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    &.wrapperLogoIconHeader {
+        background-color: var(--green);
+    }
+
+    &.wrapperLogoIconFooter {
+        background-color: var(--gray);
+    }
+}
+
+.logoIcon {
+    width: 16px;
+    height: 16px;
+
+    &.logoIconHeader {
+        fill: var(--gray);
+    }
+    &.logoIconFooter {
+        fill: var(--green);
+    }
+}
+
+.logoText {
+    font-family: var(--second-family);
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.11;
+    letter-spacing: -0.02em;
+
+    &.logoTextFooter {
+        color: var(--gray);
+    }
+}
+
+
