@@ -6,6 +6,8 @@ import Select, {
 } from 'react-select';
 
 import normalizedCategory from 'helpers/normalizedCategory';
+import { useAppDispatch } from '../../hooks/store';
+import { resetFilter } from '../../redux/filter/filter-slice';
 
 import { IOption } from 'components/Filters/FilterByCategories';
 import { icons } from 'assets/icons';
@@ -22,6 +24,7 @@ const CustomSelect: FC<ICustomSelect> = ({
     operation,
 }) => {
     const [, setSelectedOption] = useState<IOption | null>(null);
+    const dispatch = useAppDispatch();
 
     const options: IOption[] = optionsArr.map((option) => ({
         value: option,
@@ -41,6 +44,9 @@ const CustomSelect: FC<ICustomSelect> = ({
     const handleChange = (newValue: SingleValue<IOption>) => {
         if (newValue !== null) {
             setSelectedOption(newValue);
+            if (newValue.value === 'Show all') {
+                return dispatch(resetFilter());
+            }
             operation(newValue.value);
         } else {
             setSelectedOption(null);

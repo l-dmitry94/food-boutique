@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface IFilter {
+export interface IFilter {
     keyword?: string | null;
     category?: string | null;
     page: number;
