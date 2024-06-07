@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { IProduct, IProductsState } from '../../redux/types/products.types';
 import { getProducts } from './products-operation';
 
 const initialState: IProductsState = {
     products: [],
+    inCart: [],
     error: null,
     isLoading: false,
 };
@@ -11,7 +13,11 @@ const initialState: IProductsState = {
 export const productsSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {},
+    reducers: {
+        addToCart: (state, action: PayloadAction<IProduct>) => {
+            state.inCart = [...state.inCart, action.payload];
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.pending, (state) => {
@@ -36,5 +42,7 @@ export const productsSlice = createSlice({
             );
     },
 });
+
+export const { addToCart } = productsSlice.actions;
 
 export default productsSlice.reducer;

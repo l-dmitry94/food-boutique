@@ -18,6 +18,7 @@ export interface IProducts {
 
 export interface IProductsState {
     products: IProduct[];
+    inCart: IProduct[];
     isLoading: boolean;
     error: string | null;
 }

@@ -1,0 +1,106 @@
+@import "styles/mixins";
+
+.productItem {
+    position: relative;
+    background-color: var(--white-2);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.imageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray);
+    border-radius: 10px;
+    padding: 19px 0;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.info {
+    margin-bottom: 40px;
+}
+
+.productTitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    margin-bottom: 10px;
+}
+
+.detailsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+
+.detailsItem {
+    display: flex;
+    gap: 4px;
+}
+
+.detailsTitle {
+    font-size: 12px;
+    line-height: 1.17;
+    color: rgba(1, 1, 1, 0.3);
+}
+
+.detailsText {
+    font-size: 12px;
+    line-height: 1.17;
+}
+
+.control {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.productPrice {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+}
+
+.productButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background-color: var(--green);
+    border-radius: 50%;
+    @include transition(background-color);
+
+    &:is(:hover, :focus) {
+        background-color: var(--dark-green);
+    }
+}
+
+.productCartIcon {
+    width: 18px;
+    height: 18px;
+    fill: var(--gray);
+}
+
+.productCheckIcon {
+    width: 18px;
+    height: 18px;
+    fill: transparent;
+    stroke: var(--gray);
+}
+
+.productDiscount {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+}

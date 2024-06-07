@@ -8,13 +8,15 @@ import productsReducer from './products/products-slice';
 const persistConfig = {
     key: 'filter',
     storage,
+    whitelist: ['inCart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, filterReducer);
+const persistedProductReducer = persistReducer(persistConfig, productsReducer);
 
 const rootReducer = combineReducers({
     filter: persistedReducer,
-    products: productsReducer,
+    products: persistedProductReducer,
 });
 
 export default rootReducer;
