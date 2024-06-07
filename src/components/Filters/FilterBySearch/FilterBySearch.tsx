@@ -1,8 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { icons } from 'assets/icons';
 import { useAppDispatch } from '../../../hooks/store';
 import { filterByKeyword } from '../../../redux/filter/filter-slice';
+import { icons } from 'assets/icons';
 
 import scss from './FilterBySearch.module.scss';
 
