@@ -11,9 +11,10 @@ import scss from './ProductItem.module.scss';
 
 interface IProductItem {
     product: IProduct;
+    openModal: (id: string) => void;
 }
 
-const ProductItem: FC<IProductItem> = ({ product }) => {
+const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
     const dispatch = useAppDispatch();
 
     const {
@@ -38,7 +39,7 @@ const ProductItem: FC<IProductItem> = ({ product }) => {
     };
 
     return (
-        <li className={scss.productItem}>
+        <li className={scss.productItem} onClick={() => openModal(_id)}>
             <div className={scss.imageWrapper}>
                 <img src={img} alt={name} className={scss.image} />
             </div>

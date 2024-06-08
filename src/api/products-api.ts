@@ -14,3 +14,8 @@ export const fetchProducts = async (params: IFilter) => {
     const response = await instance.get('/products', { params });
     return response.data;
 };
+
+export const fetchProductById = async (id: string) => {
+    const response = await instance.get(`/products/${id}`);
+    return response.data;
+};

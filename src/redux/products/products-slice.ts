@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IProduct, IProductsState } from '../../redux/types/products.types';
-import { getProducts } from './products-operation';
+import { getProductById, getProducts } from './products-operation';
 
 const initialState: IProductsState = {
     products: [],
     inCart: [],
+    product: null,
     error: null,
     isLoading: false,
 };
@@ -22,7 +23,6 @@ export const productsSlice = createSlice({
         builder
             .addCase(getProducts.pending, (state) => {
                 state.isLoading = true;
-                state.error = null;
             })
             .addCase(
                 getProducts.fulfilled,
@@ -34,6 +34,25 @@ export const productsSlice = createSlice({
             )
             .addCase(
                 getProducts.rejected,
+                (state, action: PayloadAction<any>) => {
+                    console.log(action.payload);
+                    state.error = action.payload;
+                    state.isLoading = false;
+                }
+            )
+            .addCase(getProductById.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(
+                getProductById.fulfilled,
+                (state, action: PayloadAction<IProduct>) => {
+                    state.product = action.payload;
+                    state.isLoading = false;
+                    state.error = null;
+                }
+            )
+            .addCase(
+                getProductById.rejected,
                 (state, action: PayloadAction<any>) => {
                     console.log(action.payload);
                     state.error = action.payload;

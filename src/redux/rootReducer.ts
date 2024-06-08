@@ -5,17 +5,28 @@ import storage from 'redux-persist/lib/storage';
 import filterReducer from './filter/filter-slice';
 import productsReducer from './products/products-slice';
 
-const persistConfig = {
+const persistConfigFilter = {
     key: 'filter',
+    storage,
+};
+
+const persistConfigInCart = {
+    key: 'inCart',
     storage,
     whitelist: ['inCart'],
 };
 
-const persistedReducer = persistReducer(persistConfig, filterReducer);
-const persistedProductReducer = persistReducer(persistConfig, productsReducer);
+const persistedFilterReducer = persistReducer(
+    persistConfigFilter,
+    filterReducer
+);
+const persistedProductReducer = persistReducer(
+    persistConfigInCart,
+    productsReducer
+);
 
 const rootReducer = combineReducers({
-    filter: persistedReducer,
+    filter: persistedFilterReducer,
     products: persistedProductReducer,
 });
 
