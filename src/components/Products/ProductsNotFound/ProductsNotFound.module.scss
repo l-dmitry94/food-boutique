@@ -1,0 +1,24 @@
+.notFound {
+    max-width: 279px;
+    padding: 80px 0 140px;
+    margin: 0 auto;
+}
+
+.notFoundTitle {
+    max-width: 261px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    text-align: center;
+    margin: 0 auto 14px;
+
+    &Color {
+        color: var(--green);
+    }
+}
+
+.notFoundTitleDescription {
+    line-height: 1.29;
+    text-align: center;
+    color: rgba(1, 1, 1, 0.7);
+}

@@ -15,16 +15,16 @@
     z-index: 999;
     opacity: 0;
     @include transition(opacity);
+    padding: 20px;
 }
 
 .content {
     position: relative;
     transform: translateY(50px);
-    max-width: $mobile;
+    max-width: 335px;
     width: 100%;
     outline: transparent;
     @include transition(transform);
-    padding: 0 20px;
 
     @include media-rules(tablet) {
         max-width: $tablet;

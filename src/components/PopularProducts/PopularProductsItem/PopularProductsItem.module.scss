@@ -1,0 +1,101 @@
+@import "styles/mixins";
+
+.popularProductsItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--white-2);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.imageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 74px;
+    height: 74px;
+    border-radius: 10px;
+    background-color: var(--gray);
+}
+
+.image {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+
+.productTitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    margin-bottom: 12px;
+}
+
+.detailsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.detailsItem {
+    display: flex;
+    gap: 4px;
+
+    &:first-child {
+        flex-basis: 100%;
+    }
+}
+
+.detailsTitle {
+    font-size: 12px;
+    line-height: 1.17;
+    color: rgba(1, 1, 1, 0.3);
+}
+
+.detailsText {
+    font-size: 12px;
+    line-height: 1.17;
+}
+
+.productButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: var(--gray);
+    border-radius: 50%;
+    @include transition(background-color);
+
+    &:is(:hover, :focus) {
+        background-color: var(--green);
+
+        & .productCartIcon {
+            fill: var(--gray);
+        }
+
+        & .productCheckIcon {
+            stroke: var(--gray);
+        }
+    }
+}
+
+.productCartIcon {
+    width: 12px;
+    height: 12px;
+    fill: var(--green);
+    @include transition(fill)
+}
+
+.productCheckIcon {
+    width: 12px;
+    height: 12px;
+    fill: transparent;
+    stroke: var(--green);
+    @include transition(stroke)
+}

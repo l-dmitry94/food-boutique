@@ -1,0 +1,16 @@
+.react-simplebar {
+    max-height: 92px;
+
+    & .simplebar-track.simplebar-vertical {
+        width: 5px;
+        right: -12px;
+        overflow: visible;
+    }
+
+    & .simplebar-scrollbar::before {
+        opacity: 1;
+        width: 5px;
+        background-color: rgba(1, 1, 1, 0.08);
+        border-radius: 20px;
+    }
+}

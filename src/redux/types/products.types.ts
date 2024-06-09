@@ -20,6 +20,8 @@ export interface IProducts {
 export interface IProductsState {
     products: IProduct[];
     product: IProduct | null;
+    popularProducts: IProduct[];
+    discountProducts: IProduct[];
     inCart: IProduct[];
     isLoading: boolean;
     error: string | null;

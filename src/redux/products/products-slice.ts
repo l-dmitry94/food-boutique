@@ -1,11 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IProduct, IProductsState } from '../../redux/types/products.types';
-import { getProductById, getProducts } from './products-operation';
+import {
+    getPopularProducts,
+    getProductById,
+    getProducts,
+} from './products-operation';
 
 const initialState: IProductsState = {
     products: [],
     inCart: [],
+    popularProducts: [],
+    discountProducts: [],
     product: null,
     error: null,
     isLoading: false,
@@ -17,6 +23,11 @@ export const productsSlice = createSlice({
     reducers: {
         addToCart: (state, action: PayloadAction<IProduct>) => {
             state.inCart = [...state.inCart, action.payload];
+        },
+        deleteFromCart: (state, action: PayloadAction<string>) => {
+            state.inCart = state.inCart.filter(
+                ({ _id }) => _id !== action.payload
+            );
         },
     },
     extraReducers: (builder) => {
@@ -35,7 +46,6 @@ export const productsSlice = createSlice({
             .addCase(
                 getProducts.rejected,
                 (state, action: PayloadAction<any>) => {
-                    console.log(action.payload);
                     state.error = action.payload;
                     state.isLoading = false;
                 }
@@ -58,10 +68,28 @@ export const productsSlice = createSlice({
                     state.error = action.payload;
                     state.isLoading = false;
                 }
+            )
+            .addCase(getPopularProducts.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(
+                getPopularProducts.fulfilled,
+                (state, action: PayloadAction<IProduct[]>) => {
+                    state.popularProducts = action.payload;
+                    state.isLoading = false;
+                    state.error = null;
+                }
+            )
+            .addCase(
+                getPopularProducts.rejected,
+                (state, action: PayloadAction<any>) => {
+                    state.error = action.payload;
+                    state.isLoading = false;
+                }
             );
     },
 });
 
-export const { addToCart } = productsSlice.actions;
+export const { addToCart, deleteFromCart } = productsSlice.actions;
 
 export default productsSlice.reducer;

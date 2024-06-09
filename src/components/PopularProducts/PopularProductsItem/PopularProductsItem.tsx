@@ -1,32 +1,18 @@
 import { FC } from 'react';
 
-import normalizedCategory from 'helpers/normalizedCategory';
+import { IProductItem } from 'components/Products/ProductItem';
+
 import { icons } from 'assets/icons';
+import { addToCart } from '../../../redux/products/products-slice';
 import { useAppDispatch } from '../../../hooks/store';
 import useProducts from '../../../hooks/useProducts';
-import { IProduct } from '../../../redux/types/products.types';
-import { addToCart } from '../../../redux/products/products-slice';
+import normalizedCategory from 'helpers/normalizedCategory';
 
-import scss from './ProductItem.module.scss';
+import scss from './PopularProductsItem.module.scss';
 
-export interface IProductItem {
-    product: IProduct;
-    openModal: (id: string) => void;
-}
-
-const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
+const PopularProductsItem: FC<IProductItem> = ({ product, openModal }) => {
     const dispatch = useAppDispatch();
-
-    const {
-        _id,
-        category,
-        img,
-        is10PercentOff,
-        name,
-        popularity,
-        price,
-        size,
-    } = product;
+    const { _id, category, img, name, popularity, size } = product;
 
     const { inCart } = useProducts();
 
@@ -42,7 +28,7 @@ const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
     };
 
     return (
-        <li className={scss.productItem} onClick={() => openModal(_id)}>
+        <li className={scss.popularProductsItem} onClick={() => openModal(_id)}>
             <div className={scss.imageWrapper}>
                 <img src={img} alt={name} className={scss.image} />
             </div>
@@ -67,31 +53,19 @@ const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
                 </ul>
             </div>
 
-            <div className={scss.control}>
-                <p className={scss.productPrice}>{`$${price}`}</p>
-                <button
-                    onClick={handleAddToCart}
-                    className={scss.productButton}
-                >
-                    {!isDuplicateProduct ? (
-                        <svg className={scss.productCartIcon}>
-                            <use href={`${icons}#icon-cart`}></use>
-                        </svg>
-                    ) : (
-                        <svg className={scss.productCheckIcon}>
-                            <use href={`${icons}#icon-check`}></use>
-                        </svg>
-                    )}
-                </button>
-            </div>
-
-            {is10PercentOff && (
-                <svg className={scss.productDiscount}>
-                    <use href={`${icons}#icon-discount`}></use>
-                </svg>
-            )}
+            <button onClick={handleAddToCart} className={scss.productButton}>
+                {!isDuplicateProduct ? (
+                    <svg className={scss.productCartIcon}>
+                        <use href={`${icons}#icon-cart`}></use>
+                    </svg>
+                ) : (
+                    <svg className={scss.productCheckIcon}>
+                        <use href={`${icons}#icon-check`}></use>
+                    </svg>
+                )}
+            </button>
         </li>
     );
 };
 
-export default ProductItem;
+export default PopularProductsItem;

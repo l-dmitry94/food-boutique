@@ -1,9 +1,10 @@
-import Filters from 'components/Filters';
 import Hero from 'components/Hero';
+import Filters from 'components/Filters';
+import Container from 'components/Container';
 import Products from 'components/Products';
+import PopularProducts from 'components/PopularProducts';
 
 import scss from './Home.module.scss';
-import Container from 'components/Container';
 
 const Home = () => {
     return (
@@ -14,6 +15,10 @@ const Home = () => {
                 <Container>
                     <div className={scss.productsWrapper}>
                         <Products />
+
+                        <div className={scss.popularDiscountWrapper}>
+                            <PopularProducts />
+                        </div>
                     </div>
                 </Container>
             </section>

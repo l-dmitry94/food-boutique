@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import {
     selectAddToCart,
+    selectPopularProducts,
     selectProductById,
     selectProducts,
     selectisLoading,
@@ -11,8 +12,9 @@ const useProducts = () => {
     const inCart = useSelector(selectAddToCart);
     const product = useSelector(selectProductById);
     const isLoading = useSelector(selectisLoading);
+    const popularProducts = useSelector(selectPopularProducts);
 
-    return { products, inCart, product, isLoading };
+    return { products, inCart, product, isLoading, popularProducts };
 };
 
 export default useProducts;

@@ -1,7 +1,9 @@
 import { FC, useEffect } from 'react';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import { icons } from 'assets/icons';
-import { addToCart } from '../../redux/products/products-slice';
+import { addToCart, deleteFromCart } from '../../redux/products/products-slice';
 import normalizedCategory from 'helpers/normalizedCategory';
 import { useAppDispatch } from '../../hooks/store';
 import { getProductById } from '../../redux/products/products-operation';
@@ -28,10 +30,10 @@ const ProductModal: FC<IProductModal> = ({ id }) => {
 
     const isDuplicateProduct = inCart.some((product) => product._id === _id);
 
-    const handleAddToCart = () => {
+    const handleToggleCart = () => {
         if (!isDuplicateProduct) {
             dispatch(addToCart(product));
-        }
+        } else dispatch(deleteFromCart(_id));
     };
     return (
         <>
@@ -59,13 +61,15 @@ const ProductModal: FC<IProductModal> = ({ id }) => {
                                 <p className={scss.detailsText}>{popularity}</p>
                             </li>
                         </ul>
-                        <p className={scss.productDescription}>{desc}</p>
+                        <SimpleBar className="react-simplebar">
+                            <p className={scss.productDescription}>{desc}</p>
+                        </SimpleBar>
                     </div>
 
                     <div className={scss.control}>
                         <p className={scss.productPrice}>{`$${price}`}</p>
                         <button
-                            onClick={handleAddToCart}
+                            onClick={handleToggleCart}
                             className={scss.productButton}
                         >
                             <p className={scss.productButtonText}>
