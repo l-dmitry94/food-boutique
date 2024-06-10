@@ -44,7 +44,12 @@ const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
     return (
         <li className={scss.productItem} onClick={() => openModal(_id)}>
             <div className={scss.imageWrapper}>
-                <img src={img} alt={name} className={scss.image} />
+                <img
+                    src={img}
+                    alt={name}
+                    loading="lazy"
+                    className={scss.image}
+                />
             </div>
 
             <div className={scss.info}>
@@ -70,6 +75,7 @@ const ProductItem: FC<IProductItem> = ({ product, openModal }) => {
             <div className={scss.control}>
                 <p className={scss.productPrice}>{`$${price}`}</p>
                 <button
+                    type="button"
                     onClick={handleAddToCart}
                     className={scss.productButton}
                 >

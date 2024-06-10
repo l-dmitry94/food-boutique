@@ -6,3 +6,5 @@ export const selectProductById = (state: RootState) => state.products.product;
 export const selectisLoading = (state: RootState) => state.products.isLoading;
 export const selectPopularProducts = (state: RootState) =>
     state.products.popularProducts;
+export const selectDiscountProducts = (state: RootState) =>
+    state.products.discountProducts;

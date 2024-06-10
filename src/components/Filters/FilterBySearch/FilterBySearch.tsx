@@ -28,6 +28,7 @@ const FilterBySearch = () => {
                 type="text"
                 {...register('search')}
                 placeholder="Search for anything"
+                aria-label="Search"
                 className={scss.searchInput}
             />
 

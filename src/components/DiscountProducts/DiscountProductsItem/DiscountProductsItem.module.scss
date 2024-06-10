@@ -1,67 +1,45 @@
-@import 'styles/mixins';
+@import "styles/mixins";
 
-.productItem {
+.discountProductsItem {
     position: relative;
     background-color: var(--white-2);
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
-    padding: 20px;
+    padding: 16px;
 }
 
 .imageWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 150px;
     background-color: var(--gray);
     border-radius: 10px;
-    padding: 19px 0;
-    margin-bottom: 20px;
+    padding: 18px 0;
+    margin-bottom: 16px;
 }
 
 .image {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
+    width: 114px;
+    height: 114px;
 }
 
-.info {
-    margin-bottom: 40px;
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .productTitle {
     font-weight: 500;
     font-size: 18px;
     line-height: 1.11;
-    margin-bottom: 10px;
 }
 
-.detailsList {
+.controlWrapper {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
-    margin-bottom: 40px;
-}
-
-.detailsItem {
-    display: flex;
-    gap: 4px;
-}
-
-.detailsTitle {
-    font-size: 12px;
-    line-height: 1.17;
-    color: rgba(1, 1, 1, 0.3);
-}
-
-.detailsText {
-    font-size: 12px;
-    line-height: 1.17;
-}
-
-.control {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
 }
 
 .productPrice {
@@ -98,7 +76,7 @@
     stroke: var(--gray);
 }
 
-.productDiscount {
+.discountIcon {
     position: absolute;
     top: 3px;
     right: 10px;

@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IProduct, IProducts } from '../../redux/types/products.types';
 import { IFilter } from '../../redux/filter/filter-slice';
 import {
+    fetchDiscountProducts,
     fetchPopularProducts,
     fetchProductById,
     fetchProducts,
@@ -36,6 +37,18 @@ export const getPopularProducts = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const data: IProduct[] = await fetchPopularProducts();
+            return data;
+        } catch (error: any) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+export const getDiscountProducts = createAsyncThunk(
+    'products/getDiscountProducts',
+    async (_, { rejectWithValue }) => {
+        try {
+            const data: IProduct[] = await fetchDiscountProducts();
             return data;
         } catch (error: any) {
             return rejectWithValue(error.response.data.message);

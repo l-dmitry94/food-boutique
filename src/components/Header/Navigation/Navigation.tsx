@@ -14,7 +14,11 @@ const Navigation: FC<INavigation> = ({ menuListItems }) => {
                     if (label === 'Cart') {
                         return (
                             <li key={label}>
-                                <Link to="/cart" className={scss.cartLink}>
+                                <Link
+                                    to="/cart"
+                                    aria-label={label}
+                                    className={scss.cartLink}
+                                >
                                     <div className={scss.wrapperCartIcon}>
                                         <svg className={scss.cartIcon}>
                                             <use
@@ -29,7 +33,11 @@ const Navigation: FC<INavigation> = ({ menuListItems }) => {
                     }
                     return (
                         <li key={label}>
-                            <Link to={href} className={scss.link}>
+                            <Link
+                                to={href}
+                                aria-label={label}
+                                className={scss.link}
+                            >
                                 {label}
                             </Link>
                         </li>

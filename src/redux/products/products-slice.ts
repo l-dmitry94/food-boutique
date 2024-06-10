@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IProduct, IProductsState } from '../../redux/types/products.types';
 import {
+    getDiscountProducts,
     getPopularProducts,
     getProductById,
     getProducts,
@@ -82,6 +83,24 @@ export const productsSlice = createSlice({
             )
             .addCase(
                 getPopularProducts.rejected,
+                (state, action: PayloadAction<any>) => {
+                    state.error = action.payload;
+                    state.isLoading = false;
+                }
+            )
+            .addCase(getDiscountProducts.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(
+                getDiscountProducts.fulfilled,
+                (state, action: PayloadAction<IProduct[]>) => {
+                    state.discountProducts = action.payload;
+                    state.isLoading = false;
+                    state.error = null;
+                }
+            )
+            .addCase(
+                getDiscountProducts.rejected,
                 (state, action: PayloadAction<any>) => {
                     state.error = action.payload;
                     state.isLoading = false;

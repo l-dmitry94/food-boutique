@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import Header from 'components/Header';
+import Footer from 'components/Footer/Footer';
 
 const AppBar = () => {
     return (
@@ -10,6 +11,8 @@ const AppBar = () => {
             <main>
                 <Outlet />
             </main>
+
+            <Footer />
         </>
     );
 };

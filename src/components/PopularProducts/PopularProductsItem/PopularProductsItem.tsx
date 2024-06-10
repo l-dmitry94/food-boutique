@@ -30,7 +30,12 @@ const PopularProductsItem: FC<IProductItem> = ({ product, openModal }) => {
     return (
         <li className={scss.popularProductsItem} onClick={() => openModal(_id)}>
             <div className={scss.imageWrapper}>
-                <img src={img} alt={name} className={scss.image} />
+                <img
+                    src={img}
+                    alt={name}
+                    loading="lazy"
+                    className={scss.image}
+                />
             </div>
 
             <div className={scss.info}>
@@ -53,7 +58,11 @@ const PopularProductsItem: FC<IProductItem> = ({ product, openModal }) => {
                 </ul>
             </div>
 
-            <button onClick={handleAddToCart} className={scss.productButton}>
+            <button
+                type="button"
+                onClick={handleAddToCart}
+                className={scss.productButton}
+            >
                 {!isDuplicateProduct ? (
                     <svg className={scss.productCartIcon}>
                         <use href={`${icons}#icon-cart`}></use>

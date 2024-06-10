@@ -5,6 +5,7 @@ import Products from 'components/Products';
 import PopularProducts from 'components/PopularProducts';
 
 import scss from './Home.module.scss';
+import DiscountProducts from 'components/DiscountProducts';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
 
                         <div className={scss.popularDiscountWrapper}>
                             <PopularProducts />
+                            <DiscountProducts />
                         </div>
                     </div>
                 </Container>

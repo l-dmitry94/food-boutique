@@ -9,7 +9,7 @@ import scss from './Logo.module.scss';
 
 const Logo: FC<ILogo> = ({ style }) => {
     return (
-        <Link to="/" className={scss.linkLogo}>
+        <Link to="/" aria-label="Food boutique" className={scss.linkLogo}>
             <div
                 className={clsx(
                     scss.wrapperLogoIcon,

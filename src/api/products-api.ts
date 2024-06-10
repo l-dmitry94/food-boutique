@@ -26,3 +26,8 @@ export const fetchPopularProducts = async () => {
     const response = await instance.get<IProduct[]>('/products/popular');
     return response.data;
 };
+
+export const fetchDiscountProducts = async () => {
+    const response = await instance.get<IProduct[]>('/products/discount');
+    return response.data;
+};

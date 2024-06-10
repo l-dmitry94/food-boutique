@@ -1,0 +1,1 @@
+export { drfault } from './Footer';
