@@ -1,1 +1,1 @@
-export { drfault } from './Footer';
+export { default } from './Footer';
