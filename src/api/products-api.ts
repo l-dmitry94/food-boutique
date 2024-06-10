@@ -3,7 +3,7 @@ import axios from 'axios';
 import { IFilter } from '../redux/filter/filter-slice';
 import { IProduct } from '../redux/types/products.types';
 
-const instance = axios.create({
+export const instance = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
 });
 

@@ -22,12 +22,9 @@ const Image = () => {
                     media="(min-width: 768px)"
                     srcSet={`${hero_tab_1x} 1x, ${hero_tab_2x} 2x`}
                 />
-                <source
-                    media="(min-width: 320px)"
-                    srcSet={`${hero_mob_1x} 1x, ${hero_mob_2x} 2x`}
-                />
                 <img
                     src={hero_mob_1x}
+                    srcSet={`${hero_mob_1x} 1x, ${hero_mob_2x} 2x`}
                     alt="Welcome to the Food Boutique!"
                     className={scss.heroImage}
                 />

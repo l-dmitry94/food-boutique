@@ -2,9 +2,16 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import scss from './FooterForm.module.scss';
+import SubscriptionModal from './SubscriptionModal';
 
-interface IInputs {
+import { useAppDispatch } from 'hooks/store';
+import { getSubscription } from '../../../redux/subscription/subscription-operation';
+
+import scss from './FooterForm.module.scss';
+import CustomModal from 'components/CustomModal';
+import { useState } from 'react';
+
+export interface IInputs {
     email: string;
 }
 
@@ -16,6 +23,8 @@ const schema = yup.object({
 });
 
 const FooterForm = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const dispatch = useAppDispatch();
     const {
         register,
         handleSubmit,
@@ -26,32 +35,44 @@ const FooterForm = () => {
     });
 
     const onSubmit: SubmitHandler<IInputs> = (data) => {
-        console.log(data);
+        dispatch(getSubscription(data));
+        setModalIsOpen(true);
         reset();
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className={scss.footerForm}>
-            <p className={scss.footerText}>
-                Subscribe and learn about new products!
-            </p>
+        <>
+            <form onSubmit={handleSubmit(onSubmit)} className={scss.footerForm}>
+                <p className={scss.footerText}>
+                    Subscribe and learn about new products!
+                </p>
 
-            <div className={scss.formWrapper}>
-                <div className={scss.inputWrapper}>
-                    <input
-                        type="text"
-                        {...register('email')}
-                        placeholder="Email"
-                        className={scss.input}
-                    />
-                    <p className={scss.inputError}>{errors.email?.message}</p>
+                <div className={scss.formWrapper}>
+                    <div className={scss.inputWrapper}>
+                        <input
+                            type="text"
+                            {...register('email')}
+                            placeholder="Email"
+                            className={scss.input}
+                        />
+                        <p className={scss.inputError}>
+                            {errors.email?.message}
+                        </p>
+                    </div>
+
+                    <button type="submit" className={scss.formButton}>
+                        Send
+                    </button>
                 </div>
+            </form>
 
-                <button type="submit" className={scss.formButton}>
-                    Send
-                </button>
-            </div>
-        </form>
+            <CustomModal
+                modalIsOpen={modalIsOpen}
+                closeModal={() => setModalIsOpen(false)}
+            >
+                <SubscriptionModal />
+            </CustomModal>
+        </>
     );
 };
 

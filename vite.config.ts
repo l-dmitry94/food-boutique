@@ -13,6 +13,7 @@ export default defineConfig({
             api: '/src/api',
             helpers: '/src/helpers',
             styles: '/src/styles',
+            hooks: '/src/hooks',
         },
     },
     base: '/food-boutique',

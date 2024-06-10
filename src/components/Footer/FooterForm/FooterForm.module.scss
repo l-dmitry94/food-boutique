@@ -6,6 +6,10 @@
     margin-bottom: 20px;
 }
 
+.inputWrapper {
+    margin-bottom: 14px;
+}
+
 .input {
     display: flex;
     width: 100%;
@@ -17,11 +21,19 @@
     border-radius: 30px;
     background-color: transparent;
     padding: 0 18px;
-    margin-bottom: 14px;
 
     &::placeholder {
         color: rgba(232, 232, 226, 0.6);
     }
+}
+
+.inputError {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #be2020;
+    margin-top: 6px;
 }
 
 .formButton {

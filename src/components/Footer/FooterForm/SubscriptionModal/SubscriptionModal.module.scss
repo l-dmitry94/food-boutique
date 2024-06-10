@@ -1,0 +1,35 @@
+.subscriptionWrapper {
+    background-color: var(--gray);
+    border-radius: 20px;
+}
+
+.subscriptionInfo {
+    max-width: 248px;
+    padding-top: 100px;
+    text-align: center;
+    margin: 0 auto;
+
+    &.subscriptionInfoError {
+        padding: 80px 0;
+    }
+}
+
+.subscriptionTitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+
+    &Color {
+        color: var(--green);
+    }
+}
+
+.subscriptionDescription {
+    line-height: 1.29;
+    color: rgba(1, 1, 1, 0.7);
+}
+
+.subscriptionImage {
+    margin-top: 22px;
+}
