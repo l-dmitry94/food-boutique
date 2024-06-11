@@ -7,7 +7,10 @@ import ProductModal from 'components/ProductModal';
 
 import useFilter from '../../hooks/useFilter';
 import { useAppDispatch } from '../../hooks/store';
-import { getProducts } from '../../redux/products/products-operation';
+import {
+    getProductById,
+    getProducts,
+} from '../../redux/products/products-operation';
 import { resetFilter } from '../../redux/filter/filter-slice';
 import useProducts from '../../hooks/useProducts';
 
@@ -16,9 +19,8 @@ import scss from './Products.module.scss';
 const Products = () => {
     const { keyword, category, page, limit } = useFilter();
     const dispatch = useAppDispatch();
-    const { products, isLoading } = useProducts();
+    const { products, product, isLoading } = useProducts();
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-    const [productId, setProductId] = useState<string>('');
 
     useEffect(() => {
         dispatch(resetFilter());
@@ -30,7 +32,7 @@ const Products = () => {
 
     const handleOpenModal = (id: string) => {
         setModalIsOpen(true);
-        setProductId(id);
+        dispatch(getProductById(id));
     };
 
     return (
@@ -52,8 +54,9 @@ const Products = () => {
             <CustomModal
                 modalIsOpen={modalIsOpen}
                 closeModal={() => setModalIsOpen(false)}
+                isLoading={isLoading}
             >
-                <ProductModal id={productId} />
+                <ProductModal product={product} />
             </CustomModal>
         </section>
     );

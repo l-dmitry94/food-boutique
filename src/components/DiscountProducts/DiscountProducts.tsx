@@ -1,20 +1,22 @@
 import { Fragment, useEffect, useState } from 'react';
 
+import DiscountProductsItem from './DiscountProductsItem';
 import CustomModal from 'components/CustomModal';
 import ProductModal from 'components/ProductModal';
 
 import { useAppDispatch } from '../../hooks/store';
 import useProducts from '../../hooks/useProducts';
-import { getDiscountProducts } from '../../redux/products/products-operation';
+import {
+    getDiscountProducts,
+    getProductById,
+} from '../../redux/products/products-operation';
 
 import scss from './DiscountProducts.module.scss';
-import DiscountProductsItem from './DiscountProductsItem';
 
 const DiscountProducts = () => {
-    const { discountProducts } = useProducts();
+    const { discountProducts, product, isLoading } = useProducts();
     const dispatch = useAppDispatch();
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-    const [productId, setProductId] = useState<string>('');
 
     useEffect(() => {
         dispatch(getDiscountProducts());
@@ -22,7 +24,7 @@ const DiscountProducts = () => {
 
     const handleOpenModal = (id: string) => {
         setModalIsOpen(true);
-        setProductId(id);
+        dispatch(getProductById(id));
     };
 
     return (
@@ -45,8 +47,9 @@ const DiscountProducts = () => {
             <CustomModal
                 modalIsOpen={modalIsOpen}
                 closeModal={() => setModalIsOpen(false)}
+                isLoading={isLoading}
             >
-                <ProductModal id={productId} />
+                <ProductModal product={product} />
             </CustomModal>
         </section>
     );

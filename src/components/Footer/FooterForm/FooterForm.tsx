@@ -10,6 +10,7 @@ import { getSubscription } from '../../../redux/subscription/subscription-operat
 import scss from './FooterForm.module.scss';
 import CustomModal from 'components/CustomModal';
 import { useState } from 'react';
+import useSubscription from 'hooks/useSubscription';
 
 export interface IInputs {
     email: string;
@@ -24,6 +25,7 @@ const schema = yup.object({
 
 const FooterForm = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const { isLoading } = useSubscription();
     const dispatch = useAppDispatch();
     const {
         register,
@@ -69,6 +71,7 @@ const FooterForm = () => {
             <CustomModal
                 modalIsOpen={modalIsOpen}
                 closeModal={() => setModalIsOpen(false)}
+                isLoading={isLoading}
             >
                 <SubscriptionModal />
             </CustomModal>

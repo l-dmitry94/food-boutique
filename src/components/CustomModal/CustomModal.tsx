@@ -8,6 +8,7 @@ import scss from './CustomModal.module.scss';
 interface ICustomModal {
     modalIsOpen: boolean;
     closeModal: () => void;
+    isLoading: boolean;
     children: ReactNode;
 }
 
@@ -16,6 +17,7 @@ Modal.setAppElement('#root');
 const CustomModal: FC<ICustomModal> = ({
     modalIsOpen,
     closeModal,
+    isLoading,
     children,
 }) => {
     useEffect(() => {
@@ -27,7 +29,7 @@ const CustomModal: FC<ICustomModal> = ({
     return (
         <>
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={modalIsOpen && !isLoading}
                 onRequestClose={closeModal}
                 closeTimeoutMS={200}
                 overlayClassName={scss.overlay}

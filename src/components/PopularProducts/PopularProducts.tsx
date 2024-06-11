@@ -6,15 +6,17 @@ import ProductModal from 'components/ProductModal';
 
 import useProducts from '../../hooks/useProducts';
 import { useAppDispatch } from '../../hooks/store';
-import { getPopularProducts } from '../../redux/products/products-operation';
+import {
+    getPopularProducts,
+    getProductById,
+} from '../../redux/products/products-operation';
 
 import scss from './PopularProducts.module.scss';
 
 const PopularProducts = () => {
-    const { popularProducts } = useProducts();
+    const { popularProducts, product, isLoading } = useProducts();
     const dispatch = useAppDispatch();
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-    const [productId, setProductId] = useState<string>('');
 
     useEffect(() => {
         dispatch(getPopularProducts());
@@ -22,7 +24,7 @@ const PopularProducts = () => {
 
     const handleOpenModal = (id: string) => {
         setModalIsOpen(true);
-        setProductId(id);
+        dispatch(getProductById(id));
     };
 
     return (
@@ -42,8 +44,9 @@ const PopularProducts = () => {
             <CustomModal
                 modalIsOpen={modalIsOpen}
                 closeModal={() => setModalIsOpen(false)}
+                isLoading={isLoading}
             >
-                <ProductModal id={productId} />
+                <ProductModal product={product} />
             </CustomModal>
         </section>
     );

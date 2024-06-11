@@ -3,9 +3,9 @@ import Filters from 'components/Filters';
 import Container from 'components/Container';
 import Products from 'components/Products';
 import PopularProducts from 'components/PopularProducts';
+import DiscountProducts from 'components/DiscountProducts';
 
 import scss from './Home.module.scss';
-import DiscountProducts from 'components/DiscountProducts';
 
 const Home = () => {
     return (
