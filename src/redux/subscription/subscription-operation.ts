@@ -4,7 +4,7 @@ import { IInputs } from 'components/Footer/FooterForm/FooterForm';
 import { ISubscriptionResponse } from 'redux/types/subscription.types';
 
 export const getSubscription = createAsyncThunk(
-    'subscription',
+    'subscription/getSubscription',
     async (body: IInputs, { rejectWithValue }) => {
         try {
             const data: ISubscriptionResponse = await fetchSubscription(body);

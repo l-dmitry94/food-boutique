@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import filterReducer from './filter/filter-slice';
 import productsReducer from './products/products-slice';
 import subscriptionReducer from './subscription/subscription-slice';
+import ordersReducer from './orders/orders-slice';
 
 const persistConfigFilter = {
     key: 'filter',
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
     filter: persistedFilterReducer,
     products: persistedProductReducer,
     subscription: subscriptionReducer,
+    orders: ordersReducer,
 });
 
 export default rootReducer;

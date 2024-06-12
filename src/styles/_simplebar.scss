@@ -1,5 +1,9 @@
 .react-simplebar {
 
+    & .simplebar-wrapper {
+        width: calc(100% + 20px);
+    }
+
     & .simplebar-track.simplebar-vertical {
         width: 5px;
         right: -12px;
