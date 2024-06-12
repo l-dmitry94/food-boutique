@@ -25,10 +25,15 @@ export const productsSlice = createSlice({
         addToCart: (state, action: PayloadAction<IProduct>) => {
             state.inCart = [...state.inCart, action.payload];
         },
+
         deleteFromCart: (state, action: PayloadAction<string>) => {
             state.inCart = state.inCart.filter(
                 ({ _id }) => _id !== action.payload
             );
+        },
+
+        resetCart: (state) => {
+            state.inCart = [];
         },
     },
     extraReducers: (builder) => {
@@ -109,6 +114,6 @@ export const productsSlice = createSlice({
     },
 });
 
-export const { addToCart, deleteFromCart } = productsSlice.actions;
+export const { addToCart, deleteFromCart, resetCart } = productsSlice.actions;
 
 export default productsSlice.reducer;

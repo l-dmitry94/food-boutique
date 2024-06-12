@@ -1,0 +1,26 @@
+.empty {
+    max-width: 279px;
+    text-align: center;
+    padding: 22px 0 40px;
+    margin: 0 auto;
+}
+
+.emptyImage {
+    margin: 0 auto 28px;
+}
+
+.emptyTitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    margin-bottom: 14px;
+
+    &Color {
+        color: var(--green);
+    }
+}
+
+.emptyDescription {
+    line-height: 1.29;
+    color: rgba(1, 1, 1, 0.7);
+}

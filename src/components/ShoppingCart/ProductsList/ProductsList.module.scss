@@ -1,0 +1,28 @@
+.productsWrapper {
+    position: relative;
+}
+
+.deleteAll {
+    position: absolute;
+    top: -50px;
+    right: 7px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.deleteText {
+    font-weight: 500;
+    line-height: 1.29;
+}
+
+.deleteIcon {
+    fill: var(--black);
+}
+
+.productsList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 6px;
+}

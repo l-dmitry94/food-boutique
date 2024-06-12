@@ -17,8 +17,8 @@ import useProducts from '../../hooks/useProducts';
 import scss from './Products.module.scss';
 
 const Products = () => {
-    const { keyword, category, page, limit } = useFilter();
     const dispatch = useAppDispatch();
+    const { keyword, category, page, limit } = useFilter();
     const { products, product, isLoading } = useProducts();
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 

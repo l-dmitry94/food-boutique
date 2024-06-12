@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import SimpleBar from 'simplebar-react';
-import 'simplebar-react/dist/simplebar.min.css';
+
+import CustomSimpleBar from 'components/CustomSimpleBar';
 
 import { icons } from 'assets/icons';
 import { addToCart, deleteFromCart } from '../../redux/products/products-slice';
-import normalizedCategory from 'helpers/normalizedCategory';
 import { useAppDispatch } from '../../hooks/store';
 import useProducts from '../../hooks/useProducts';
+import normalizedCategory from 'helpers/normalizedCategory';
 
-import scss from './ProductModal.module.scss';
 import { IProduct } from '../../redux/types/products.types';
+import scss from './ProductModal.module.scss';
 
 interface IProductModal {
     product: IProduct | null;
@@ -56,9 +56,9 @@ const ProductModal: FC<IProductModal> = ({ product }) => {
                         <p className={scss.detailsText}>{popularity}</p>
                     </li>
                 </ul>
-                <SimpleBar className="react-simplebar">
+                <CustomSimpleBar height={92}>
                     <p className={scss.productDescription}>{desc}</p>
-                </SimpleBar>
+                </CustomSimpleBar>
             </div>
 
             <div className={scss.control}>
