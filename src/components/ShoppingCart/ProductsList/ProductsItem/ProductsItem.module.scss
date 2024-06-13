@@ -52,6 +52,13 @@
 .detailText {
     font-size: 12px;
     line-height: 1.17;
+    white-space: nowrap;
+
+    &.detailTextOverflow {
+        width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .productPrice {

@@ -11,7 +11,6 @@ export interface IOrder {
 }
 
 export const fetchOrders = async (body: IOrder) => {
-    console.log(body);
     const response = await instance.post('/orders', body);
     return response.data;
 };

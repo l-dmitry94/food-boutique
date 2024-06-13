@@ -1,0 +1,26 @@
+.modal {
+    background-color: var(--gray);
+    border-radius: 20px;
+    padding: 40px 20px 60px;
+}
+
+.image {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 40px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description {
+    line-height: 1.29;
+    text-align: center;
+    color: rgba(1, 1, 1, 0.7);
+}

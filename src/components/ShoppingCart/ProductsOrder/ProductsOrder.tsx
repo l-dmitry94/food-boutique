@@ -1,14 +1,19 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { IInputs } from 'components/Footer/FooterForm';
+import CustomModal from 'components/CustomModal';
 
-import scss from './ProductsOrder.module.scss';
 import { IProduct } from '../../../redux/types/products.types';
 import { getOrders } from '../../../redux/orders/orders-operation';
+import { resetCart } from '../../../redux/products/products-slice';
 import { useAppDispatch } from 'hooks/store';
+
+import { IInputs } from 'components/Footer/FooterForm';
+import scss from './ProductsOrder.module.scss';
+import useOrders from 'hooks/useOrders';
+import ProductsOrderModal from './ProductsOrderModal';
 
 interface IProductsOrder {
     totalPrice: number;
@@ -24,6 +29,8 @@ const schema = yup.object({
 
 const ProductsOrder: FC<IProductsOrder> = ({ totalPrice, products }) => {
     const dispatch = useAppDispatch();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const { isLoading, error } = useOrders();
 
     const {
         register,
@@ -33,18 +40,23 @@ const ProductsOrder: FC<IProductsOrder> = ({ totalPrice, products }) => {
         resolver: yupResolver(schema),
     });
 
-    const orders = products.map(({ _id }) => ({
+    const order = products.map(({ _id }) => ({
         productId: _id,
         amount: 1,
     }));
 
-    const onSubmit: SubmitHandler<IInputs> = ({ email }) => {
+    const onSubmit: SubmitHandler<IInputs> = async ({ email }) => {
         dispatch(
             getOrders({
                 email,
-                products: orders,
+                products: order,
             })
         );
+        setModalIsOpen(true);
+    };
+
+    const resetCartProducts = () => {
+        dispatch(resetCart());
     };
 
     return (
@@ -81,6 +93,15 @@ const ProductsOrder: FC<IProductsOrder> = ({ totalPrice, products }) => {
                     Checkout
                 </button>
             </form>
+
+            <CustomModal
+                modalIsOpen={modalIsOpen}
+                isLoading={isLoading}
+                closeModal={() => setModalIsOpen(false)}
+                onClickOrders={resetCartProducts}
+            >
+                <ProductsOrderModal error={error} image={products[0].img} />
+            </CustomModal>
         </div>
     );
 };

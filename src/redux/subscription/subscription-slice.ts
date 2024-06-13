@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Loading } from 'notiflix';
 
 import { ISubscriptionState } from '../../redux/types/subscription.types';
 import { getSubscription } from './subscription-operation';
@@ -17,6 +18,10 @@ export const subscriptionSlice = createSlice({
         builder
             .addCase(getSubscription.pending, (state) => {
                 state.isLoading = true;
+                Loading.pulse({
+                    backgroundColor: 'rgba(1, 1, 1, 0.4)',
+                    svgColor: '#fafafa',
+                });
             })
             .addCase(
                 getSubscription.fulfilled,
@@ -24,6 +29,7 @@ export const subscriptionSlice = createSlice({
                     state.isLoading = false;
                     state.message = action.payload;
                     state.error = null;
+                    Loading.remove();
                 }
             )
             .addCase(
@@ -31,6 +37,7 @@ export const subscriptionSlice = createSlice({
                 (state, action: PayloadAction<any>) => {
                     state.isLoading = false;
                     state.error = action.payload;
+                    Loading.remove();
                 }
             ),
 });

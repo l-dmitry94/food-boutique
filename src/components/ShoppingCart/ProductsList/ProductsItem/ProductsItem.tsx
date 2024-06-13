@@ -44,7 +44,11 @@ const ProductsItem: FC<IProductsItem> = ({ product }) => {
                     </li>
                     <li className={scss.detailsItem}>
                         <p className={scss.detailTitle}>Size:</p>
-                        <p className={scss.detailText}>{size}</p>
+                        <p
+                            className={`${scss.detailText} ${scss.detailTextOverflow}`}
+                        >
+                            {size}
+                        </p>
                     </li>
                 </ul>
                 <p className={scss.productPrice}>{`$${price}`}</p>

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Loading } from 'notiflix';
 
 import { IProduct, IProductsState } from '../../redux/types/products.types';
 import {
@@ -40,6 +41,10 @@ export const productsSlice = createSlice({
         builder
             .addCase(getProducts.pending, (state) => {
                 state.isLoading = true;
+                Loading.pulse({
+                    backgroundColor: 'rgba(1, 1, 1, 0.4)',
+                    svgColor: '#fafafa',
+                });
             })
             .addCase(
                 getProducts.fulfilled,
@@ -47,6 +52,7 @@ export const productsSlice = createSlice({
                     state.products = action.payload;
                     state.isLoading = false;
                     state.error = null;
+                    Loading.remove();
                 }
             )
             .addCase(
@@ -54,10 +60,15 @@ export const productsSlice = createSlice({
                 (state, action: PayloadAction<any>) => {
                     state.error = action.payload;
                     state.isLoading = false;
+                    Loading.remove();
                 }
             )
             .addCase(getProductById.pending, (state) => {
                 state.isLoading = true;
+                Loading.pulse({
+                    backgroundColor: 'rgba(1, 1, 1, 0.4)',
+                    svgColor: '#fafafa',
+                });
             })
             .addCase(
                 getProductById.fulfilled,
@@ -65,6 +76,7 @@ export const productsSlice = createSlice({
                     state.product = action.payload;
                     state.isLoading = false;
                     state.error = null;
+                    Loading.remove();
                 }
             )
             .addCase(
@@ -73,10 +85,15 @@ export const productsSlice = createSlice({
                     console.log(action.payload);
                     state.error = action.payload;
                     state.isLoading = false;
+                    Loading.remove();
                 }
             )
             .addCase(getPopularProducts.pending, (state) => {
                 state.isLoading = true;
+                Loading.pulse({
+                    backgroundColor: 'rgba(1, 1, 1, 0.4)',
+                    svgColor: '#fafafa',
+                });
             })
             .addCase(
                 getPopularProducts.fulfilled,
@@ -84,6 +101,7 @@ export const productsSlice = createSlice({
                     state.popularProducts = action.payload;
                     state.isLoading = false;
                     state.error = null;
+                    Loading.remove();
                 }
             )
             .addCase(
@@ -91,10 +109,15 @@ export const productsSlice = createSlice({
                 (state, action: PayloadAction<any>) => {
                     state.error = action.payload;
                     state.isLoading = false;
+                    Loading.remove();
                 }
             )
             .addCase(getDiscountProducts.pending, (state) => {
                 state.isLoading = true;
+                Loading.pulse({
+                    backgroundColor: 'rgba(1, 1, 1, 0.4)',
+                    svgColor: '#fafafa',
+                });
             })
             .addCase(
                 getDiscountProducts.fulfilled,
@@ -102,6 +125,7 @@ export const productsSlice = createSlice({
                     state.discountProducts = action.payload;
                     state.isLoading = false;
                     state.error = null;
+                    Loading.remove();
                 }
             )
             .addCase(
@@ -109,6 +133,7 @@ export const productsSlice = createSlice({
                 (state, action: PayloadAction<any>) => {
                     state.error = action.payload;
                     state.isLoading = false;
+                    Loading.remove();
                 }
             );
     },

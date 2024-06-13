@@ -9,6 +9,7 @@ interface ICustomModal {
     modalIsOpen: boolean;
     closeModal: () => void;
     isLoading: boolean;
+    onClickOrders?: () => void;
     children: ReactNode;
 }
 
@@ -18,6 +19,7 @@ const CustomModal: FC<ICustomModal> = ({
     modalIsOpen,
     closeModal,
     isLoading,
+    onClickOrders,
     children,
 }) => {
     useEffect(() => {
@@ -36,7 +38,14 @@ const CustomModal: FC<ICustomModal> = ({
                 className={scss.content}
             >
                 <div className={scss.modalWrapper}>
-                    <button onClick={closeModal} className={scss.closeButton}>
+                    <button
+                        onClick={() => {
+                            closeModal();
+                            onClickOrders && onClickOrders();
+                            document.body.style.overflow = 'visible';
+                        }}
+                        className={scss.closeButton}
+                    >
                         <svg className={scss.closeIcon}>
                             <use href={`${icons}#icon-close`}></use>
                         </svg>
